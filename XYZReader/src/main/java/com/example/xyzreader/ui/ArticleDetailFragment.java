@@ -185,10 +185,10 @@ public class ArticleDetailFragment extends Fragment implements
     }
 
     private void changeUIColors(Bitmap bitmap) {
-        Palette.generateAsync(bitmap, new Palette.PaletteAsyncListener() {
-            public void onGenerated(Palette palette) {
+        Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+            public void onGenerated(Palette p) {
                 int defaultColor = 0xFF333333;
-                int darkMutedColor = palette.getDarkMutedColor(defaultColor);
+                int darkMutedColor = p.getDarkMutedColor(defaultColor);
                 metaBar.setBackgroundColor(darkMutedColor);
                 if (mCollapsingToolbarLayout != null) {
                     mCollapsingToolbarLayout.setContentScrimColor(darkMutedColor);
